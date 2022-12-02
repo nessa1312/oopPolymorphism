@@ -35,5 +35,6 @@ public class Truck extends Transport implements Competing {
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
                 '}';
+
     }
 }
