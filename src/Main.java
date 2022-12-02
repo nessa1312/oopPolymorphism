@@ -92,6 +92,5 @@ public class Main {
         DriverB carDriverB = new DriverB("Александр", 4, audi);
         DriverD busDriverD = new DriverD("Алексей", 10, busThree);
         DriverC truckDriverC = new DriverC("Артур", 11, kamaz1);
-
     }
 }

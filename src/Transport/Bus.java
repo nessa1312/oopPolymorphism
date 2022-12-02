@@ -56,6 +56,5 @@ public class Bus extends Transport implements Competing {
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() + '\'' +
                 "}";
-
     }
 }

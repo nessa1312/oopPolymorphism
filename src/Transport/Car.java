@@ -53,6 +53,5 @@ public class Car extends Transport implements Competing {
                 "brand='" + getBrand() + '\'' +
                 ", model='" + getModel() +
                 '}';
-
     }
 }
