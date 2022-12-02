@@ -10,5 +10,4 @@ public enum BodyType {
         PICKUP,
         VAN,
         MINIVAN;
-
 }
