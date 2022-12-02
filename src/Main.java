@@ -2,20 +2,20 @@ import Transport.*;
 
 public class Main {
     public static void main(String[] args) {
-        Car lada = new Car("Lada", " Vesta ", 1.7);
-        Car audi = new Car("Audi", " A5 ", 3.0);
-        Car bmw = new Car("BMW", " X5 ", 2.5);
-        Car kia = new Car("KIA", " Rio X ", 1.6);
+        Car lada = new Car("Lada", " Vesta ", 1.7, BodyType.SEDAN);
+        Car audi = new Car("Audi", " A5 ", 3.0, BodyType.COUPE);
+        Car bmw = new Car("BMW", " X5 ", 2.5, BodyType.CROSSOVER);
+        Car kia = new Car("KIA", " Rio X ", 1.6, BodyType.HATCHBACK);
 
-        Truck kamaz = new Truck("Kamaz", " A1 ", 4.0);
-        Truck kamaz1 = new Truck("Kamaz", " B2 ", 4.5);
-        Truck volvo = new Truck("Volvo", " C3 ", 5.0);
-        Truck reno = new Truck("Reno", " D4 ", 5.5);
+        Truck kamaz = new Truck("Kamaz", " A1 ", 4.0, Weight.N3);
+        Truck kamaz1 = new Truck("Kamaz", " B2 ", 4.5, Weight.N2);
+        Truck volvo = new Truck("Volvo", " C3 ", 5.0, Weight.N3);
+        Truck reno = new Truck("Reno", " D4 ", 5.5, Weight.N1);
 
-        Bus busOne = new Bus("busOne", " A1 ", 3.0);
-        Bus busTwo = new Bus("busTwo", " A2 ", 2.0);
-        Bus busThree = new Bus("busThree", " A3 ", 2.4);
-        Bus busFour = new Bus("busFour", " A4 ", 2.5);
+        Bus busOne = new Bus("busOne", " A1 ", 3.0, Capacity.MEDIUM);
+        Bus busTwo = new Bus("busTwo", " A2 ", 2.0, Capacity.LARGE);
+        Bus busThree = new Bus("busThree", " A3 ", 2.4, Capacity.EXTRA_SMALL);
+        Bus busFour = new Bus("busFour", " A4 ", 2.5, Capacity.EXTRA_LARGE);
 
         lada.startMoving();
         lada.maxSpeed();
@@ -89,13 +89,8 @@ public class Main {
         busFour.pitStop();
         busFour.endMoving();
 
-        DriverB carDriverB = new DriverB("Александр",4, audi);
+        DriverB carDriverB = new DriverB("Александр", 4, audi);
         DriverD busDriverD = new DriverD("Алексей", 10, busThree);
         DriverC truckDriverC = new DriverC("Артур", 11, kamaz1);
-
-        System.out.println(carDriverB);
-        System.out.println(busDriverD);
-        System.out.println(truckDriverC);
-
     }
 }
