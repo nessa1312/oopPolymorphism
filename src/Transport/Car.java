@@ -39,12 +39,23 @@ public class Car extends Transport implements Competing {
         System.out.println("Легковый автомобиль закончил движение");
     }
 
+
     public void printType(){
         if (bodyType == null){
             System.out.println("Данных недостаточно");
         }else{
             System.out.println("Тип авто: " + bodyType);
         }
+    }
+
+    @Override
+    public boolean toFixTheCar() {
+        return Math.random() > 0.7;
+    }
+
+    @Override
+    public void toPerformMaintenance() {
+        System.out.println("Машина " + getModel()+ "починена");
     }
 
     @Override

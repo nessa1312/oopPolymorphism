@@ -50,6 +50,15 @@ public class Truck extends Transport implements Competing {
         }
     }
 
+    public boolean toFixTheCar() {
+        return Math.random() > 0.75;
+    }
+
+    @Override
+    public void toPerformMaintenance() {
+        System.out.println("Грузовик " + getModel()+ "починен");
+    }
+
     @Override
     public String toString() {
         return "Track{" +

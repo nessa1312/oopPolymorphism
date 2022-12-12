@@ -50,6 +50,16 @@ public class Bus extends Transport implements Competing {
         }
     }
 
+    public boolean toFixTheCar() {
+        System.out.println("Автобус "+getModel()+ " " +getBrand()+" в диагностике не нуждается");
+        return true;
+    }
+
+    @Override
+    public void toPerformMaintenance() {
+        System.out.println("Автобус " + getModel()+ "починен");
+    }
+
     @Override
     public String toString() {
         return "Bus{" +

@@ -1,11 +1,18 @@
 import Transport.*;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        Mechanic <Car> denis = new Mechanic<Car>("Денис", "Демидов", "Ронта");
+        Sponsor nickolay = new Sponsor("Николай", 100000);
         Car lada = new Car("Lada", " Vesta ", 1.7, BodyType.SEDAN);
         Car audi = new Car("Audi", " A5 ", 3.0, BodyType.COUPE);
         Car bmw = new Car("BMW", " X5 ", 2.5, BodyType.CROSSOVER);
         Car kia = new Car("KIA", " Rio X ", 1.6, BodyType.HATCHBACK);
+        audi.addDriver(new DriverB("Александр", 4, audi));
+        audi.addMechanic(denis);
+        audi.addSponsor(nickolay);
 
         Truck kamaz = new Truck("Kamaz", " A1 ", 4.0, Weight.N3);
         Truck kamaz1 = new Truck("Kamaz", " B2 ", 4.5, Weight.N2);
@@ -89,8 +96,17 @@ public class Main {
         busFour.pitStop();
         busFour.endMoving();
 
-        DriverB carDriverB = new DriverB("Александр", 4, audi);
         DriverD busDriverD = new DriverD("Алексей", 10, busThree);
         DriverC truckDriverC = new DriverC("Артур", 11, kamaz1);
+
+        List<Transport> transports = List.of(kia, audi, bmw, lada, kamaz, kamaz1, volvo, reno, busOne, busTwo, busThree, busFour);
+    }
+
+    private static void toFixTheCar(Transport... transports){
+        for (Transport transport : transports){
+            toFixTheCar(transport);
+        }
     }
 }
+
+
