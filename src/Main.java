@@ -1,18 +1,14 @@
 import Transport.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Mechanic <Car> denis = new Mechanic<Car>("Денис", "Демидов", "Ронта");
-        Sponsor nickolay = new Sponsor("Николай", 100000);
         Car lada = new Car("Lada", " Vesta ", 1.7, BodyType.SEDAN);
         Car audi = new Car("Audi", " A5 ", 3.0, BodyType.COUPE);
         Car bmw = new Car("BMW", " X5 ", 2.5, BodyType.CROSSOVER);
         Car kia = new Car("KIA", " Rio X ", 1.6, BodyType.HATCHBACK);
-        audi.addDriver(new DriverB("Александр", 4, audi));
-        audi.addMechanic(denis);
-        audi.addSponsor(nickolay);
 
         Truck kamaz = new Truck("Kamaz", " A1 ", 4.0, Weight.N3);
         Truck kamaz1 = new Truck("Kamaz", " B2 ", 4.5, Weight.N2);
@@ -24,88 +20,72 @@ public class Main {
         Bus busThree = new Bus("busThree", " A3 ", 2.4, Capacity.EXTRA_SMALL);
         Bus busFour = new Bus("busFour", " A4 ", 2.5, Capacity.EXTRA_LARGE);
 
-        lada.startMoving();
-        lada.maxSpeed();
-        lada.bestLapTime();
-        lada.pitStop();
-        lada.endMoving();
-
-        audi.startMoving();
-        audi.maxSpeed();
-        audi.bestLapTime();
-        audi.pitStop();
-        audi.endMoving();
-
-        bmw.startMoving();
-        bmw.maxSpeed();
-        bmw.bestLapTime();
-        bmw.pitStop();
-        bmw.endMoving();
-
-        kia.startMoving();
-        kia.maxSpeed();
-        kia.bestLapTime();
-        kia.pitStop();
-        kia.endMoving();
-
-        kamaz.startMoving();
-        kamaz.maxSpeed();
-        kamaz.bestLapTime();
-        kamaz.pitStop();
-        kamaz.endMoving();
-
-        kamaz1.startMoving();
-        kamaz1.maxSpeed();
-        kamaz1.bestLapTime();
-        kamaz1.pitStop();
-        kamaz1.endMoving();
-
-        volvo.startMoving();
-        volvo.maxSpeed();
-        volvo.bestLapTime();
-        volvo.pitStop();
-        volvo.endMoving();
-
-        reno.startMoving();
-        reno.maxSpeed();
-        reno.bestLapTime();
-        reno.pitStop();
-        reno.endMoving();
-
-        busOne.startMoving();
-        busOne.maxSpeed();
-        busOne.bestLapTime();
-        busOne.pitStop();
-        busOne.endMoving();
-
-        busTwo.startMoving();
-        busTwo.maxSpeed();
-        busTwo.bestLapTime();
-        busTwo.pitStop();
-        busTwo.endMoving();
-
-        busThree.startMoving();
-        busThree.maxSpeed();
-        busThree.bestLapTime();
-        busThree.pitStop();
-        busThree.endMoving();
-
-        busFour.startMoving();
-        busFour.maxSpeed();
-        busFour.bestLapTime();
-        busFour.pitStop();
-        busFour.endMoving();
-
         DriverD busDriverD = new DriverD("Алексей", 10, busThree);
         DriverC truckDriverC = new DriverC("Артур", 11, kamaz1);
+        DriverB carDriverB = new DriverB("Михаил",6, audi);
 
-        List<Transport> transports = List.of(kia, audi, bmw, lada, kamaz, kamaz1, volvo, reno, busOne, busTwo, busThree, busFour);
-    }
+        ArrayList<Transport> allTransports = new ArrayList<>();
+        allTransports.add(lada);
+        allTransports.add(audi);
+        allTransports.add(bmw);
+        allTransports.add(kia);
+        allTransports.add(kamaz);
+        allTransports.add(volvo);
+        allTransports.add(busOne);
+        allTransports.add(busTwo);
+        allTransports.add(busThree);
+        allTransports.add(busFour);
 
-    private static void toFixTheCar(Transport... transports){
-        for (Transport transport : transports){
-            toFixTheCar(transport);
+        Mechanic mechanicOne = new Mechanic("Механик 1", "Копания 1", TransportType.CAR);
+        Mechanic mechanicTwo = new Mechanic("Механик 2", "Копания 1", TransportType.BUS);
+        Mechanic mechanicThree =new Mechanic("Механик 3", "Копания 1", TransportType.TRUCK);
+        Mechanic mechanicFour =new Mechanic("Механик 4", "Копания 2", TransportType.CAR);
+        Mechanic mechanicFife =new Mechanic("Механик 5", "Копания 2", TransportType.TRUCK);
+        Mechanic mechanicSix = new Mechanic("Механик 6", "Копания 3", TransportType.BUS);
+        Mechanic mechanicSeven =new Mechanic("Механик 7", "Копания 3", TransportType.CAR);
+        Mechanic mechanicEight =new Mechanic("Механик 8", "Копания 4", TransportType.BUS);
+
+        lada.getMechanicList().add(mechanicOne);
+        lada.getMechanicList().add(mechanicTwo);
+        lada.getMechanicList().add(mechanicThree);
+        bmw.getMechanicList().add(mechanicThree);
+        bmw.getMechanicList().add(mechanicFour);
+        bmw.getMechanicList().add(mechanicFife);
+        bmw.getMechanicList().add(mechanicSix);
+        volvo.getMechanicList().add(mechanicSeven);
+        volvo.getMechanicList().add(mechanicEight);
+
+        Sponsor sponsorOne = new Sponsor("Спонсор 1", 5_000_000);
+        Sponsor sponsorTwo = new Sponsor("Спонсор 2", 6_000_000);
+        Sponsor sponsorThree = new Sponsor("Спонсор 3", 7_000_000);
+        Sponsor sponsorFour = new Sponsor("Спонсор 4", 8_000_000);
+        Sponsor sponsorFife = new Sponsor("Спонсор 5", 9_000_000);
+        Sponsor sponsorSix = new Sponsor("Спонсор 6", 10_000_000);
+
+        lada.getSponsorList().add(sponsorOne);
+        lada.getSponsorList().add(sponsorTwo);
+        bmw.getSponsorList().add(sponsorThree);
+        volvo.getSponsorList().add(sponsorFour);
+        kia.getSponsorList().add(sponsorFife);
+        kamaz.getSponsorList().add(sponsorSix);
+
+        for (Transport car :allTransports) {
+            if (car.getMechanicList().size() != 0) {
+                System.out.println(car.getMechanicList());
+            }
+            if (car.getSponsorList().size() != 0) {
+                System.out.println(car.getSponsorList());
+            }
         }
+
+        ServiceStation<Transport> transportServiceStation = new ServiceStation<Transport>();
+        transportServiceStation.addTransport(audi);
+        transportServiceStation.addTransport(volvo);
+        transportServiceStation.addTransport(kamaz);
+        transportServiceStation.addTransport(busOne);
+        transportServiceStation.addTransport(bmw);
+
+        transportServiceStation.maintenance();
     }
 }
 
